@@ -16,8 +16,9 @@
 /* 1. Base
 /* 2. Header
 /* 3. About
-/* 4. Aside
-/* 5. Footer
+/* 4. Work
+/* 5. Contact
+/* 6. Footer
 /**********************************/
 
 /**********************************/
@@ -205,12 +206,25 @@ header {
 }
 
 .contact-links a{
-    font-size: 2rem;
+    font-size: 1.6rem;
     margin-left: 1rem;
 }
 
-
-
 /**********************************/
-/* 6. Variables
+/* 6. Header
 /**********************************/
+
+footer {
+    border-top: 4px solid var(--bg-color-header);
+    background-color: var(--bg-color-contact);
+    display: flex;
+    justify-content: center;
+    padding: 2.5rem;
+}
+
+footer p {
+    color: var(--body-font-color);
+    font-family: var(--body-font);
+    font-size: 1.5rem;
+    font-weight: 300;
+}
