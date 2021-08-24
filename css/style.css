@@ -8,7 +8,7 @@
 *::after {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
+    box-sizing: inherit;
 }
 
 /**********************************/
@@ -38,73 +38,93 @@
 /* 1. Base
 /**********************************/
 
+ /* Set font size for easy rem calculations
+   * default document font size = 16px, 1rem = 16px, 100% = 16px
+   * (100% / 16px) * 10 = 62.5%, 1rem = 10px, 62.5% = 10px
+  */
+
 html {
+    font-size: 62.5%;
     scroll-behavior: smooth;
+    box-sizing: border-box;
 }
 
 body {
+    color: var(--body-font-color);
     font-family: var(--body-font);
     font-size: 1.8rem;
     font-weight: 400;
     line-height: 1.4;
+    
 }
 
-a,
-a:hover,
-a:active,
-a:link,
-a:visited {
+a {
     text-decoration: none;
     color: #FFF;
 }
 
-li {
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 4.2rem;
+}
+
+
+h1, h2 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    text-align: center;
+}
+
+ul {
     list-style: none;
 }
 
 img {
     display: block;
+    width: 100%;
 }
 
 /**********************************/
 /* 2. Header
 /**********************************/
 
+/*
 header {
     position: sticky;
     top: 0;
     left: 0;
     z-index: 10;
+    width: 100%;
 }
+*/
 
-.header-bg {
+.nav {
+    width: 100%;
     background-color: var(--bg-color-header);
-    box-shadow: 10px 3px 1px rgba(0, 0, 0, 0.39);
-}
-
-.menu {
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    max-width: 960px;
-    min-height: 70px;
-    margin: 0 auto;
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
 }
 
-.nav__list {
+.nav-list {
     display: flex;
+    margin-right: 2rem;
 }
 
-.menu .nav__list .nav__link {
+.nav-link {
     display: block;
-    font-size: 1.3rem;
-    padding: 1.5rem;
-    font-weight: 500;
-    color: var(--body-font-color);
+    font-size: 2.2rem;
+    padding: 2rem;
 }
 
-.menu .nav__list .nav__link:hover{
-    background-color: #45567D;
+.nav-link:hover {
+    background-color: var(--bg-color-work);
 }
 
 /**********************************/
@@ -122,16 +142,9 @@ header {
     padding: 0.4rem;
 }
 
-.about h1{
-    color: var(--body-font-color);
-    font-family: var(--heading-font);
-    font-weight: 700;
-    font-size: 3.2rem;
-    text-align: center;
-}
-
 .about p {
     color: var(--bg-color-header);
+    font-size: 3rem;
     font-style: italic;
     font-weight: 200;
 }
@@ -142,7 +155,6 @@ header {
 
 .work {
     background-color: var(--bg-color-work);
-    color: var(--body-font-color);
     text-align: center;
     padding: 10rem 2rem;
 }
@@ -151,9 +163,7 @@ header {
 .work-section-header {
     max-width: 640px;
     margin: 0 auto 6rem auto;
-    font-size: 2.7rem;
-    border-bottom: 0.1rem solid #fff;
-    font-family: var(--heading-font);
+    border-bottom: 0.2rem solid #fff;
 }
 
 .projects-grid {
@@ -173,15 +183,23 @@ header {
 }
 
 .project-image {
-    height: calc(100% - 4.8rem);
+    height: calc(100% - 6.8rem);
     width: 100%;
     object-fit: cover;
 }
 
 .project-title {
-    font-size: 1.4rem;
-    margin-top: 20px;
-    
+    font-size: 2rem;
+    padding: 2rem 0.5rem;
+}
+
+.code {
+    color: #303841;
+    transition: color 0.5s ease-out;
+}
+
+.project:hover .code {
+    color: #ff7f50;
 }
 
 /**********************************/
@@ -197,16 +215,15 @@ header {
     font-family: var(--heading-font);
     text-align: center;
     width: 100%;
-    height: 80vh;
+    height: 85vh;
 }
 
 .contact h1 {
-    font-size: 4rem;
     padding-bottom: 2rem;
 }
 
 .contact-links a{
-    font-size: 1.6rem;
+    font-size: 2rem;
     margin-left: 1rem;
 }
 
